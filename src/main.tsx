@@ -1,10 +1,42 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { HomePage } from "../src/routes/HomePage";
+
+
+
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Root } from "./routes/Root";
+import { DigitalPage } from "./routes/DigitalPage";
+import { AnalogPage } from "./routes/AnalogPage";
+// import { GridPage } from "./routes/GridPage";
+// import { FormPage } from "./routes/FormPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <div>there was an error</div>,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/Analog",
+        element: <AnalogPage />,
+      },
+      {
+        path: "/Digital",
+        element: <DigitalPage />,
+      },
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
