@@ -3,13 +3,13 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-export const DigitalPage: React.FC = () => {
+export const Analog: React.FC = () => {
   return (
     <>
     <Container fluid>
       <Row>
         <Col>
-          <Header title="This is the digital page!" />
+          <Header title="This is the analog page!" />
         </Col>
       </Row>
       {/* <Row className="d-flex flex-column flex-md-row vh-100">

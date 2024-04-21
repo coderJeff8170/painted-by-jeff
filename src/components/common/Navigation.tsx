@@ -7,9 +7,9 @@ import {  useState } from "react";
 
 export const Navigation: React.FC = () => {
 
-  const homeNavlinks = ["Analog", "Digital"];
-  const analogNavlinks = ["Paintings", "Drawings", "Prints"];
-  const digitalNavlinks = ["Frontend", "Backend", "Games"];
+  const homeNavlinks = [{name: "Analog", path: "Analog"}, {name: "Digital", path: "Digital"}];
+  const analogNavlinks = [{name: "Paintings", path: "Analog/Paintings"}, {name: "Drawings", path: "Analog/Drawings"}];
+  const digitalNavlinks = [{name: "Frontend", path: "Digital/Frontend"},  {name: "Games", path: "Digital/Games"}];
 
   const [navlinks, setNavLinks] = useState(homeNavlinks);
 
@@ -23,9 +23,13 @@ export const Navigation: React.FC = () => {
         console.log("Digital");
         setNavLinks(digitalNavlinks);
         break;
+        case "Home":
+        console.log("Home");
+        setNavLinks(digitalNavlinks);
+        break;
       default:
         console.log("default");
-        setNavLinks(homeNavlinks);
+        //setNavLinks(homeNavlinks);
     }
   };
   return (
@@ -37,8 +41,8 @@ export const Navigation: React.FC = () => {
           <Nav className="me-auto">
             {navlinks.map((link, index) => {
               return (
-                <NavLink className="nav-link" key={index} to={`/${link}`} onClick={() => handleNavClick(link)}>
-                  {link}
+                <NavLink className="nav-link" key={index} to={`${link.path}`} onClick={() => handleNavClick(link.name)}>
+                  {link.name}
                 </NavLink>
               );
             })}

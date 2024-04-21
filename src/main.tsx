@@ -2,14 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { HomePage } from "../src/routes/HomePage";
+import { Home } from "./routes/Home";
 
 
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Root } from "./routes/Root";
-import { DigitalPage } from "./routes/DigitalPage";
-import { AnalogPage } from "./routes/AnalogPage";
+import { Digital } from "./routes/Digital";
+import { Analog } from "./routes/Analog";
+import { Paintings } from "./routes/Paintings";
 // import { GridPage } from "./routes/GridPage";
 // import { FormPage } from "./routes/FormPage";
 
@@ -21,15 +22,31 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <HomePage />,
+        element: <Home />,
       },
       {
-        path: "/Analog",
-        element: <AnalogPage />,
+        path: "Analog",
+        element: <Analog />,
       },
       {
-        path: "/Digital",
-        element: <DigitalPage />,
+        path: "Analog/Paintings",
+        element: <Paintings />
+      },
+      {
+        path: "Analog/Drawings",
+        element: <h1>Drawings</h1>,
+      },
+      {
+        path: "Digital",
+        element: <Digital />,
+      },
+      {
+        path: "Digital/Frontend",
+        element: <h1>Frontend</h1>,
+      },
+      {
+        path: "Digital/Games",
+        element: <h1>Games</h1>,
       },
     ],
   },

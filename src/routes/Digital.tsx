@@ -1,22 +1,15 @@
 import { Header } from "../components/common/Header";
 import Container from "react-bootstrap/Container";
-import Image from 'react-bootstrap/Image';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-export const HomePage: React.FC = () => {
+export const Digital: React.FC = () => {
   return (
     <>
     <Container fluid>
       <Row>
         <Col>
-          <Header title="Welcome to the new and improved PaintedByJeff!" />
-        </Col>
-      </Row>
-      <Row style={{height: "500px"}}>
-        <Col className="text-center" style={{height: "100%"}}>
-          {/* <img src="/CAprogress2.gif" style={{ maxHeight: "100%", width: "auto" }}/> */}
-        <Image src="/CAprogress2.gif" thumbnail style={{ maxHeight: "100%", width: "auto" }}/>
+          <Header title="This is the digital page!" />
         </Col>
       </Row>
       {/* <Row className="d-flex flex-column flex-md-row vh-100">
