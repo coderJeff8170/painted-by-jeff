@@ -7,13 +7,13 @@ import Footer from "../components/common/Footer";
 
 export const Root: React.FC = () => {
   return (
-    <Container fluid >
+    <Container fluid className="d-flex flex-column vh-100">
       <Row>
         <Col>
           <Navigation/>
         </Col>
       </Row>
-      <Row>
+      <Row className="flex-grow-1">
         <Col>
           <Outlet />
         </Col>

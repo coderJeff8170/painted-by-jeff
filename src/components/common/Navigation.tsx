@@ -32,7 +32,7 @@ export const Navigation: React.FC = () => {
   return (
     <Navbar  expand="md" className="bg-body-tertiary">
       <Container>
-      <Navbar.Brand href="#home">Painted By Jeff</Navbar.Brand>
+      <Navbar.Brand href="/">Painted By Jeff</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

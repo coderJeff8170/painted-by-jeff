@@ -6,7 +6,7 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ title }) => {
     return (
-        <footer style={{ position: 'absolute', bottom: 0, width: '100%', textAlign: 'center' }}>
+        <footer style={{ bottom: 0, width: '100%', textAlign: 'center' }}>
             Proudly built with React.ts in React Bootstrap
             &copy; 2024 by {title}
         </footer>

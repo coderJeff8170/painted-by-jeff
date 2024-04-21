@@ -10,12 +10,13 @@ export const HomePage: React.FC = () => {
     <Container fluid>
       <Row>
         <Col>
-          <Header title="This is the home page!" />
+          <Header title="Welcome to the new and improved PaintedByJeff!" />
         </Col>
       </Row>
-      <Row>
-        <Col>
-        <Image src="/CAprogress2.gif" rounded />
+      <Row style={{height: "500px"}}>
+        <Col className="text-center" style={{height: "100%"}}>
+          {/* <img src="/CAprogress2.gif" style={{ maxHeight: "100%", width: "auto" }}/> */}
+        <Image src="/CAprogress2.gif" thumbnail style={{ maxHeight: "100%", width: "auto" }}/>
         </Col>
       </Row>
       {/* <Row className="d-flex flex-column flex-md-row vh-100">
