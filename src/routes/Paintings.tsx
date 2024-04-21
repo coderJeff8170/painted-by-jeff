@@ -5,13 +5,41 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 export const Paintings: React.FC = () => {
+
+  
   const cards = [1, 2, 3, 4, 5, 6];
-  const cards2 = [{
-    text: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-    thumbnail: "https://via.placeholder.com/150",
-    title: "Card Title",
-    pic: "https://via.placeholder.com/150",
-  }, {}, {}, {}, {}, {}];
+  const cards2 = [
+    {
+      description: "Alethea, 16x12, Acrylic on Canvas, 2021",
+      thumbnail: "/src/assets/Thumbs/TAlethea.jpg",
+      title: "Alethea",
+      link: "/src/assets/Thumbs/Alethea16x12.jpg",
+    }, 
+    {
+      description: "Alethea, 16x12, Acrylic on Canvas, 2021",
+      thumbnail: "/src/assets/Thumbs/TAlethea.jpg",
+      title: "Alethea",
+      link: "/src/assets/Thumbs/Alethea16x12.jpg",
+    },
+    {
+      description: "Alethea, 16x12, Acrylic on Canvas, 2021",
+      thumbnail: "/src/assets/Thumbs/TAlethea.jpg",
+      title: "Alethea",
+      link: "/src/assets/Thumbs/Alethea16x12.jpg",
+    },
+    {
+      description: "Alethea, 16x12, Acrylic on Canvas, 2021",
+      thumbnail: "/src/assets/Thumbs/TAlethea.jpg",
+      title: "Alethea",
+      link: "/src/assets/Thumbs/Alethea16x12.jpg",
+    },
+    {
+      description: "Alethea, 16x12, Acrylic on Canvas, 2021",
+      thumbnail: "/src/assets/Thumbs/TAlethea.jpg",
+      title: "Alethea",
+      link: "/src/assets/Thumbs/Alethea16x12.jpg",
+    },
+  ];
   return (
     <>
       <Container fluid>
@@ -22,14 +50,13 @@ export const Paintings: React.FC = () => {
         </Row>
         <Row >
         <Col  className="d-flex flex-wrap align-items-center justify-content-center" style={{border: "2px solid red"}}>
-          {cards.map((card, index) => {
+          {cards2.map((card, index) => {
             return (
-              <Card style={{ width: "15rem" }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
+              <Card style={{ width: "15rem" }} key={index}>
+                <Card.Img variant="top" src={card.thumbnail} />
                 <Card.Body>
                   <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    {card.description}
                   </Card.Text>
                 </Card.Body>
               </Card>
