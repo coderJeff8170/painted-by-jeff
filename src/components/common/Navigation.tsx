@@ -29,7 +29,6 @@ export const Navigation: React.FC = () => {
         break;
       default:
         console.log("default");
-        //setNavLinks(homeNavlinks);
     }
   };
   return (
