@@ -13,7 +13,6 @@ export const Navigation: React.FC = () => {
 
   const [navlinks, setNavLinks] = useState(homeNavlinks);
 
-  //TODO: alter the navigation links so that they are unique to either analog or digital
   const handleNavClick = (link: string) => {
     switch(link) {
       case "Analog":
