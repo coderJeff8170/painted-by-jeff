@@ -2,7 +2,8 @@ import { Header } from "../components/common/Header";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { ArtCard } from "../components/common/ArtCard";
+
+import { ArtCardLayout } from "../components/common/ArtCardLayout";
 
 export const Paintings: React.FC = () => {
   //TODO: add filter functionality and export to a custom hook...
@@ -47,9 +48,10 @@ export const Paintings: React.FC = () => {
             <Header title="This is the paintings page!" />
           </Col>
         </Row>
-        <Row >
+        <ArtCardLayout cards={cards2} />
+        {/* <Row >
         <Col  className="d-flex flex-wrap align-items-center justify-content-center" style={{border: "2px solid red"}}>
-          {cards2.map((card, index) => {
+          {cards2.map((card) => {
             return (
               // <Card style={{ width: "15rem" }} key={index}>
               //   <Card.Img variant="top" src={card.thumbnail} />
@@ -59,11 +61,11 @@ export const Paintings: React.FC = () => {
               //     </Card.Text>
               //   </Card.Body>
               // </Card>
-              <ArtCard cardInfo={card} index={index} />
+              <ArtCard cardInfo={card} />
             );
           })}
           </Col>
-        </Row>
+        </Row> */}
       </Container>
     </>
   );

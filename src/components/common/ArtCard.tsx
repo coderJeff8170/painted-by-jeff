@@ -1,89 +1,97 @@
 import { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Modal from "react-bootstrap/Modal";
+import Image from "react-bootstrap/Image";
+// import "./ArtCard.css";
 
-interface ArtCardProps {
-  cardInfo: ArtCardInfo;
-  index: number;
-}
-type ArtCardInfo = {
+export interface ArtCardProps {
   description: string;
   thumbnail: string;
   title: string;
   link: string;
-};
-export const ArtCard: React.FC<ArtCardProps> = ({ cardInfo, index }) => {
+}
+
+export const ArtCard: React.FC<ArtCardProps> = ( props ) => {
+  const { description, link, thumbnail, title } = props;
   const [showFullImage, setShowFullImage] = useState(false);
+  const [showMagnifier, setShowMagnifier] = useState(false);
+  const [[x, y], setXY] = useState([0, 0]);
+  const [[imgWidth, imgHeight], setSize] = useState([0, 0]);
+
+  //TODO: move magnifier to its own component with the following props
+  const magnifierWidth = 100;
+  const magnifierHeight = 100;
+  const zoomLevel = 2;
+
 
   return (
     <>
-      <Card className="m-2" style={{ width: "15rem" }} key={index}>
+      <Card className="m-2" style={{ width: "15rem" }} >
         <Card.Img
           variant="top"
-          src={cardInfo.thumbnail}
+          src={thumbnail}
           onClick={() => setShowFullImage(true)}
+          style={{cursor: "zoom-in"}}
         />
         <Card.Body>
-          <Card.Text>{cardInfo.description}</Card.Text>
+          <Card.Text>{description}</Card.Text>
         </Card.Body>
       </Card>
       {showFullImage && (
-        // <div
-        //   className="lightbox"
-        //   onClick={closeFullImage}
-        //   style={{
-        //     position: "fixed",
-        //     top: 0,
-        //     left: 0,
-        //     width: "100%",
-        //     height: "100%",
-        //     backgroundColor: "rgba(0, 0, 0, 0.5)",
-        //     zIndex: 1050,
-        //     display: "flex",
-        //     justifyContent: "center",
-        //     alignItems: "center",
-        //   }}
-        // >
-        //   <img
-        //     src={cardInfo.link}
-        //     style={{ maxHeight: "90%", maxWidth: "90%" }}
-        //     onClick={(e) => e.stopPropagation()}
-        //   />
-        //   <span
-        //     className="close-icon"
-        //     style={{
-        //       position: "absolute",
-        //       top: 10,
-        //       right: 10,
-        //       cursor: "pointer",
-        //       color: "white",
-        //       fontSize: "30px",
-        //     }}
-        //     onClick={closeFullImage}
-        //   >
-        //     &times;
-        //   </span>
-        // </div>
         <Modal
-        show={showFullImage}
-        size="lg"
-        onHide={() => setShowFullImage(false)}
-        dialogClassName="modal-90w"
-        aria-labelledby="example-custom-modal-styling-title"
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="example-custom-modal-styling-title">
-            {cardInfo.title}
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-        <img
-            src={cardInfo.link}
-            style={{ maxHeight: "100%", maxWidth: "100%" }}
-            onClick={(e) => e.stopPropagation()}
-          />
-        </Modal.Body>
-      </Modal>
+          show={showFullImage}
+          //size="lg"
+          onHide={() => setShowFullImage(false)}
+          aria-labelledby={title}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id={title}>
+              {title}
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="text-center">
+            <Image 
+              style={{cursor: "none"}}
+              src={link}
+              alt={description} 
+              fluid 
+              onMouseEnter={(e) => {
+                const elem = e.currentTarget;
+                const { width, height } = elem.getBoundingClientRect();
+                setSize([width, height]);
+                setShowMagnifier(true)
+              }}
+              onMouseLeave={() => setShowMagnifier(false)}
+              onMouseMove={(e) => {
+                const elem = e.currentTarget;
+                const { left, top } = elem.getBoundingClientRect();
+                // calculate cursor position within the image
+                const x = e.clientX - left - window.scrollX;
+                const y = e.clientY - top - window.scrollY;
+                setXY([x, y]);
+              }}
+              />
+            {showMagnifier && 
+              <div
+                style={{
+                  position: "absolute",
+                  pointerEvents: "none",
+                  height: "100px",
+                  width: "100px",
+                  top: `${y - 100/2}px`,
+                  left: `${x - 100/2}px`,
+                  opacity: 1,
+                  border: "1px solid black",
+                  backgroundColor: "white",
+                  backgroundImage: `url(${link})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: `${imgWidth * zoomLevel}px ${imgHeight * zoomLevel}px`,
+                  backgroundPosition: `-${x * zoomLevel - magnifierWidth/2}px -${y * zoomLevel - magnifierHeight/2}px`,
+                }}
+              >
+              </div>}
+          </Modal.Body>
+        </Modal>
       )}
     </>
   );
