@@ -3,7 +3,6 @@ import Card from "react-bootstrap/Card";
 import Modal from "react-bootstrap/Modal";
 import Image from "react-bootstrap/Image";
 import { ImageMagnifier } from "./ImageMagnifier";
-// import "./ArtCard.css";
 
 export interface ArtCardProps {
   description: string;
@@ -23,6 +22,22 @@ export const ArtCard: React.FC<ArtCardProps> = (props) => {
   const magnifierWidth = 100;
   const magnifierHeight = 100;
   const zoomLevel = 2;
+
+  const handleMouseEnter = (e: { currentTarget: HTMLImageElement; }) => {
+    const elem = e.currentTarget;
+    const { width, height } = elem.getBoundingClientRect();
+    setSize([width, height]);
+    setShowMagnifier(true);
+  }
+
+  const handleMouseMove = (e: { currentTarget: HTMLImageElement; clientX: number; clientY: number; }) => {
+    const elem = e.currentTarget;
+    const { left, top } = elem.getBoundingClientRect();
+    // calculate cursor position within the image
+    const x = e.clientX - left - window.scrollX;
+    const y = e.clientY - top - window.scrollY;
+    setXY([x, y]);
+  }
 
   return (
     <>
@@ -52,21 +67,9 @@ export const ArtCard: React.FC<ArtCardProps> = (props) => {
               src={link}
               alt={description}
               fluid
-              onMouseEnter={(e) => {
-                const elem = e.currentTarget;
-                const { width, height } = elem.getBoundingClientRect();
-                setSize([width, height]);
-                setShowMagnifier(true);
-              }}
+              onMouseEnter={handleMouseEnter}
               onMouseLeave={() => setShowMagnifier(false)}
-              onMouseMove={(e) => {
-                const elem = e.currentTarget;
-                const { left, top } = elem.getBoundingClientRect();
-                // calculate cursor position within the image
-                const x = e.clientX - left - window.scrollX;
-                const y = e.clientY - top - window.scrollY;
-                setXY([x, y]);
-              }}
+              onMouseMove={handleMouseMove}
             />
             {showMagnifier && (
               <ImageMagnifier
