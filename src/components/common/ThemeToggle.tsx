@@ -4,7 +4,7 @@ import { ToggleIconLight } from "../../assets/icons/ToggleIconLight";
 import { ToggleIconDark } from "../../assets/icons/ToggleIconDark";
 
 export const ThemeToggle: React.FC = () => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("blue");
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));

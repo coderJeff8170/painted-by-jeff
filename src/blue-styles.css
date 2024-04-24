@@ -1,0 +1,33 @@
+/* an experiment in custom themeing */
+
+:root {
+    --bs-white: #ffffff;
+    --bs-blue: #007bff;
+    --bs-blue-500: #007bff;
+    --bs-blue-600: #0069d9;
+    --bs-blue-700: #005cbf;
+    --bs-gray-600: #6c757d;
+  }
+
+  [data-bs-theme="blue"] body{
+    --bs-body-color: var(--bs-white);
+    --bs-body-bg: var(--bs-blue);
+    --bs-tertiary-bg: var(--bs-blue-600);
+  }
+
+[data-bs-theme="blue"] .dropdown-menu {
+    --bs-dropdown-bg: #0071d4; /* Example replacement for mix */
+    --bs-dropdown-link-active-bg: var(--bs-blue-700);
+  }
+  
+  [data-bs-theme="blue"] .btn-primary {
+    --bs-btn-bg: #6b7a8d; /* Static computed value */
+    --bs-btn-border-color: rgba(255, 255, 255, 0.25);
+    --bs-btn-hover-bg: #657387;
+    --bs-btn-hover-border-color: rgba(255, 255, 255, 0.25);
+    --bs-btn-active-bg: #5f6b81;
+    --bs-btn-active-border-color: rgba(255, 255, 255, 0.5);
+    --bs-btn-focus-border-color: rgba(255, 255, 255, 0.5);
+    --bs-btn-focus-box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .2);
+  }
+  

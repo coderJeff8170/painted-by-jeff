@@ -1,3 +1,5 @@
+//much of the code for this magnifier was adapted with great gratitude from anxiny at https://dev.to/anxiny/create-an-image-magnifier-with-react-3fd7
+
 export interface ImageMagnifierProps {
   coordinates: [number, number];
   imageSize: [number, number];
