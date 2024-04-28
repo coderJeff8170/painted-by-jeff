@@ -4,7 +4,9 @@ import { ToggleIconLight } from "../../assets/icons/ToggleIconLight";
 import { ToggleIconDark } from "../../assets/icons/ToggleIconDark";
 
 export const ThemeToggle: React.FC = () => {
-  const [theme, setTheme] = useState("blue");
+
+  const storedTheme = localStorage.getItem('theme');
+  const [theme, setTheme] = useState(storedTheme || "light");
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
@@ -12,6 +14,7 @@ export const ThemeToggle: React.FC = () => {
 
   useEffect(() => {
     document.documentElement.setAttribute("data-bs-theme", theme);
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   return (
