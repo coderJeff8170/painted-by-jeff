@@ -6,9 +6,11 @@ import { ImageMagnifier } from "./ImageMagnifier";
 
 export interface ArtCardProps {
   description: string;
+  link: string;
+  medium?: string;
   thumbnail: string;
   title: string;
-  link: string;
+  type?: string;
 }
 
 export const ArtCard: React.FC<ArtCardProps> = (props) => {

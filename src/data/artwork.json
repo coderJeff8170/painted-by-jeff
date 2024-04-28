@@ -1,0 +1,13 @@
+[
+    {
+        "id": "1",
+        "description": "Alethea, 16x12, Acrylic on Canvas, 2021",
+        "size": "16x12",
+        "thumbnail": "/src/assets/Thumbs/TAlethea.jpg",
+        "title": "Alethea",
+        "link": "/src/assets/FullSize/Alethea16x12.jpg",
+        "medium": "Acrylic",
+        "type": "portrait",
+        "year": "2021"
+    }
+]

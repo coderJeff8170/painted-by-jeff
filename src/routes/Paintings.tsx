@@ -14,6 +14,8 @@ export const Paintings: React.FC = () => {
       thumbnail: "/src/assets/Thumbs/TAlethea.jpg",
       title: "Alethea",
       link: "/src/assets/FullSize/Alethea16x12.jpg",
+      medium: "Acrylic",
+      type: "portrait",
     }, 
     {
       description: "Alethea, 16x12, Acrylic on Canvas, 2021",
