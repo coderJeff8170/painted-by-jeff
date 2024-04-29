@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { FormEvent, useState } from "react";
+import axios from "axios";
 
 export const Admin: React.FC = () => {
   const [id, setId] = useState("");
@@ -12,7 +13,13 @@ export const Admin: React.FC = () => {
   const [views, setViews] = useState("");
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    //axios.post("http://localhost:3000/api/paintings", {})
+    axios.post("http://localhost:3000/posts", {
+      id: id,
+      title: title,
+      views: views,
+    }).then((response) => {
+      console.log(response.data);
+    });
 
     event.preventDefault();
     event.stopPropagation();
