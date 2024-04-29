@@ -5,6 +5,8 @@ import Col from "react-bootstrap/Col";
 
 import { ArtCardLayout } from "../components/common/ArtCardLayout";
 
+//import art from "../../db.json";
+
 export const Paintings: React.FC = () => {
   //TODO: add filter functionality and export to a custom hook...
 
@@ -50,6 +52,8 @@ export const Paintings: React.FC = () => {
       type: "portrait",
     }, 
   ];
+
+  //const cards3 = art;
   return (
     <>
       <Container fluid>

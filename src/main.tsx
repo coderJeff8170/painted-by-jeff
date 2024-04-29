@@ -15,6 +15,10 @@ import { Admin } from "./routes/Admin";
 // import { GridPage } from "./routes/GridPage";
 // import { FormPage } from "./routes/FormPage";
 
+import file from "../db.json";
+
+console.log(file);
+
 const router = createBrowserRouter([
   {
     path: "/",

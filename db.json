@@ -1,4 +1,38 @@
 {
+  "art": [
+    {
+      "description": "Alethea, 16x12, Acrylic on Canvas, 2021",
+      "thumbnail": "TAlethea.jpg",
+      "title": "Alethea",
+      "link": "Alethea16x12.jpg",
+      "medium": "Acrylic",
+      "type": "portrait"
+    },
+    {
+      "description": "Alethea, 16x12, Acrylic on Canvas, 2021",
+      "thumbnail": "TAlethea.jpg",
+      "title": "Alethea",
+      "link": "Alethea16x12.jpg",
+      "medium": "Acrylic",
+      "type": "portrait"
+    },
+    {
+      "description": "Alethea, 16x12, Acrylic on Canvas, 2021",
+      "thumbnail": "TAlethea.jpg",
+      "title": "Alethea",
+      "link": "Alethea16x12.jpg",
+      "medium": "Acrylic",
+      "type": "portrait"
+    },
+    {
+      "description": "Alethea, 16x12, Acrylic on Canvas, 2021",
+      "thumbnail": "TAlethea.jpg",
+      "title": "Alethea",
+      "link": "Alethea16x12.jpg",
+      "medium": "Acrylic",
+      "type": "portrait"
+    }
+  ],
   "posts": [
     {
       "id": "1",
@@ -19,6 +53,11 @@
       "id": "4",
       "title": "yet another title",
       "views": "199"
+    },
+    {
+      "id": "17fb",
+      "title": "something else",
+      "views": "888"
     }
   ],
   "comments": [
