@@ -12,6 +12,7 @@ export const Home: React.FC = () => {
         <Row>
           <Col>
             <Header title="Welcome to the new and improved PaintedByJeff!" />
+            <Header title={import.meta.env.MODE} />
           </Col>
         </Row>
         <Row style={{ height: "500px" }}>

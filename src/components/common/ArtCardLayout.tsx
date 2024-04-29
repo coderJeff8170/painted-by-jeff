@@ -17,8 +17,8 @@ export const ArtCardLayout: React.FC<{ cards: ArtCardProps[] }> = ({
             <ArtCard
               title={card.title}
               description={card.description}
-              thumbnail={card.thumbnail}
-              link={card.link}
+              thumbnail={`/Thumbs/${card.thumbnail}`}
+              link={`/FullSize/${card.link}`}
               key={index}
             />
           );

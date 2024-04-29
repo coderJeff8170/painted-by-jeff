@@ -34,8 +34,8 @@ export const Admin: React.FC = () => {
               <Header title="AdminPage/Upload form" />
             </Col>
           </Row>
-          <Row>
-            <Col>
+          <Row className="justify-content-center">
+            <Col md={6} lg={4} >
               <Form onSubmit={handleSubmit}>
                 <Form.Group
                   className="mb-3"
