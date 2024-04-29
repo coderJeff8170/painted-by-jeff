@@ -17,8 +17,8 @@ export const ArtCardLayout: React.FC<{ cards: ArtCardProps[] }> = ({
             <ArtCard
               title={card.title}
               description={card.description}
-              thumbnail={`/Thumbs/${card.thumbnail}`}
-              link={`/FullSize/${card.link}`}
+              thumbnail={`${import.meta.env.VITE_THUMBNAIL_PATH}${card.thumbnail}`}
+              link={`${import.meta.env.VITE_FULL_SIZE_IMAGE_PATH}${card.link}`}
               key={index}
             />
           );
