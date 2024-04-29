@@ -59,12 +59,15 @@ export const Navigation: React.FC = () => {
               );
             })}
           </Nav>
+          <Nav>
+            {import.meta.env.MODE === "development" && (
+              <NavLink className="nav-link" to={`/Admin`}>
+                Admin
+              </NavLink>
+            )}
+          </Nav>
         </Navbar.Collapse>
-        {import.meta.env.MODE === "development" && (
-          <NavLink className="nav-link" to={`/Admin`}>
-            Admin
-          </NavLink>
-        )}
+
         <ThemeToggle />
       </Container>
     </Navbar>

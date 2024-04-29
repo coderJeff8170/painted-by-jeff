@@ -12,9 +12,15 @@ export const Admin: React.FC = () => {
   const [title, setTitle] = useState("");
   const [views, setViews] = useState("");
 
+  const clearForm = () => {
+    setId("");
+    setTitle("");
+    setViews("");
+  }
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     axios.post("http://localhost:3000/posts", {
-      id: id,
+      // id: id,
       title: title,
       views: views,
     }).then((response) => {
@@ -24,7 +30,9 @@ export const Admin: React.FC = () => {
     event.preventDefault();
     event.stopPropagation();
     console.log(id, title, views);
+    clearForm();
   };
+  // perhaps add a grid that displays the current artwork in the database, and allows for editing and deletion
   return (
     <>
       {import.meta.env.MODE === "development" && (
