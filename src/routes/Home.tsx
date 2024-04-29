@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 export const Home: React.FC = () => {
+  // const isDev = process.env.NODE_ENV === "development";
   return (
     <>
       <Container fluid>

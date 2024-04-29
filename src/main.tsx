@@ -11,6 +11,7 @@ import { Root } from "./routes/Root";
 import { Digital } from "./routes/Digital";
 import { Analog } from "./routes/Analog";
 import { Paintings } from "./routes/Paintings";
+import { Admin } from "./routes/Admin";
 // import { GridPage } from "./routes/GridPage";
 // import { FormPage } from "./routes/FormPage";
 
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "Admin",
+        element: <Admin />,
       },
       {
         path: "Analog",
