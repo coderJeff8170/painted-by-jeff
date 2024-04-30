@@ -8,24 +8,24 @@ import { FormEvent, useState } from "react";
 import axios from "axios";
 
 export const Admin: React.FC = () => {
-  const [thumbnail, setThumbnail] = useState("");
-  const [width, setWidth] = useState("");
   const [height, setHeight] = useState("");
   const [image, setImage] = useState("");
   const [medium, setMedium] = useState("");
-  const [year, setYear] = useState("");
+  const [thumbnail, setThumbnail] = useState("");
   const [title, setTitle] = useState("");
   const [type, setType] = useState("");
+  const [width, setWidth] = useState("");
+  const [year, setYear] = useState("");
 
   const clearForm = () => {
-    setThumbnail("");
-    setWidth("");
     setHeight("");
     setImage("");
     setMedium("");
-    setYear("");
+    setThumbnail("");
     setTitle("");
     setType("");
+    setWidth("");
+    setYear("");
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -34,10 +34,13 @@ export const Admin: React.FC = () => {
       .post("http://localhost:3000/art", {
         datetime: dateTime,
         description: `${title}, ${width}x${height}, ${medium}, ${year}`,
+        height: height,
+        image: image,
         medium: medium,
         thumbnail: thumbnail,
-        image: image,
         title: title,
+        type: type,
+        width: width,
         year: year,
       })
       .then((response) => {
@@ -59,8 +62,9 @@ export const Admin: React.FC = () => {
             </Col>
           </Row>
           <Row className="justify-content-center">
+          <Form onSubmit={handleSubmit}>
             <Col md={6} lg={4}>
-              <Form onSubmit={handleSubmit}>
+              
                 <Form.Group
                   className="mb-3"
                   controlId="exampleForm.ControlInput2"
@@ -158,8 +162,12 @@ export const Admin: React.FC = () => {
                   />
                 </Form.Group>
                 <Button type="submit">Submit form</Button>
-              </Form>
+              
             </Col>
+            <Col md={6} lg={4}>
+
+            </Col>
+            </Form>
           </Row>
         </Container>
       )}
