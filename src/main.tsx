@@ -12,13 +12,6 @@ import { Digital } from "./routes/Digital";
 import { Analog } from "./routes/Analog";
 import { Paintings } from "./routes/Paintings";
 import { Admin } from "./routes/Admin";
-// import { GridPage } from "./routes/GridPage";
-// import { FormPage } from "./routes/FormPage";
-
-//TODO: add this to context so that it can be accessed by all components
-import file from "../db.json";
-
-console.log(file);
 
 const router = createBrowserRouter([
   {
