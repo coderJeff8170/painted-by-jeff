@@ -16,8 +16,8 @@
     {
       "id": "9f89",
       "datetime": "2024-04-30T01:46:39.645Z",
-      "height": 16,
-      "width": 12,
+      "height": 14,
+      "width": 11,
       "description": "Amelia, 11x14, Acrylic on Canvas, 2011",
       "medium": "Acrylic on Canvas",
       "thumbnail": "TAmelia.jpg",
@@ -26,47 +26,5 @@
       "type": "portrait",
       "year": 2011
     }
-  ],
-  "posts": [
-    {
-      "id": "1",
-      "title": "a title",
-      "views": 100
-    },
-    {
-      "id": "2",
-      "title": "another title",
-      "views": 200
-    },
-    {
-      "id": "3",
-      "title": "another title",
-      "views": 99
-    },
-    {
-      "id": "4",
-      "title": "yet another title",
-      "views": "199"
-    },
-    {
-      "id": "17fb",
-      "title": "something else",
-      "views": "888"
-    }
-  ],
-  "comments": [
-    {
-      "id": "1",
-      "text": "a comment about post 1",
-      "postId": "1"
-    },
-    {
-      "id": "2",
-      "text": "another comment about post 1",
-      "postId": "1"
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

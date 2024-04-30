@@ -6,6 +6,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { FormEvent, useState } from "react";
 import axios from "axios";
+import { PaginatedTable } from "../components/common/PaginatedTable";
 
 export const Admin: React.FC = () => {
   const [height, setHeight] = useState("");
@@ -51,7 +52,8 @@ export const Admin: React.FC = () => {
     event.stopPropagation();
     clearForm();
   };
-  // perhaps add a grid that displays the current artwork in the database, and allows for editing and deletion
+  // move form to a modal with an add button to activate. 
+  // clicking a row in the grid should display information in the form and display the thumbnail
   return (
     <>
       {import.meta.env.MODE === "development" && (
@@ -162,13 +164,15 @@ export const Admin: React.FC = () => {
                   />
                 </Form.Group>
                 <Button type="submit">Submit form</Button>
-              
+              {/* TODO: do not allow submission of form unless all fields pass validation */}
             </Col>
             <Col md={6} lg={4}>
 
             </Col>
             </Form>
           </Row>
+          <hr/>
+          <PaginatedTable />
         </Container>
       )}
     </>
