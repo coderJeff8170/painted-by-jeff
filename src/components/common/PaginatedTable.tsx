@@ -1,12 +1,10 @@
 import { useContext, useState } from "react";
 import { Table, Pagination } from "react-bootstrap";
 import { StaticDataContext } from "../../context/StaticDataContext";
-import { Dropdown, DropdownButton } from "react-bootstrap";
+import { Dropdown, DropdownButton, Button, Row, Col } from "react-bootstrap";
 
 export const PaginatedTable = () => {
-
   const data2 = useContext(StaticDataContext);
-  console.log(data2);
   const data = data2.art;
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -58,33 +56,48 @@ export const PaginatedTable = () => {
   //TODO: figure out how to make this a generic component by moving the data to a prop
   return (
     <>
-      <Table striped bordered hover>
+      <Table striped bordered hover className="m-0">
         <thead>
           <tr>
             {/* can we map the keys in the prop object coming in and use them to generate the headings? */}
-            <th>ID</th>
+
             <th>Title</th>
             <th>Description</th>
             <th>Type</th>
             <th>Date Added</th>
+            <th className="text-center">Actions</th>
           </tr>
         </thead>
         <tbody>
           {currentItems.map((item) => (
             <tr key={item.id}>
-              <td>{item.id}</td>
               <td>{item.title}</td>
               <td>{item.description}</td>
               <td>{item.type}</td>
               <td>{item.datetime}</td>
+              <td className="text-center">
+                <Button variant="primary" className="me-2">
+                  Edit
+                </Button>
+                <Button variant="danger">Delete</Button>
+              </td>
             </tr>
           ))}
         </tbody>
       </Table>
-      <DropdownButton id="dropdown-basic-button" title={itemsPerPage}>
-        {renderDropdownItems()}
-      </DropdownButton>
-      <Pagination>{renderPaginationItems()}</Pagination>
+
+      <Row className="justify-content-center">
+        <Col className="d-flex align-items-center justify-content-space">
+          <DropdownButton
+            id="dropdown-basic-button"
+            className="m-1"
+            title={itemsPerPage}
+          >
+            {renderDropdownItems()}
+          </DropdownButton>
+          <Pagination className="mt-3">{renderPaginationItems()}</Pagination>
+        </Col>
+      </Row>
     </>
   );
 };

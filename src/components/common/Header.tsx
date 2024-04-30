@@ -8,7 +8,7 @@ type HeaderType = {
 export const Header: React.FC<HeaderType> = (props: HeaderType) => {
   const { title } = props;
   return (
-    <Container fluid>
+    <Container className="mt-4 mb-4" fluid>
       <Row>
         <Col className="text-center">
           <h1>{title}</h1>
