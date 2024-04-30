@@ -1,23 +1,16 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Table, Pagination } from "react-bootstrap";
 import { StaticDataContext } from "../../context/StaticDataContext";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 
 export const PaginatedTable = () => {
-  //TODO replace this with the context data and move out of file
-  // const data = [
-  //   // Assuming each item is an object with properties like `id`, `name`, `views`, etc.
-  //   { id: 1, name: 'Item 1', views: 100 },
-  //   { id: 2, name: 'Item 2', views: 200 },
-  //   // Add more items as needed
-  // ];
 
   const data2 = useContext(StaticDataContext);
   console.log(data2);
   const data = data2.art;
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(5); //TODO: add a dropdown to select items per page and move pagination to own component
+  const [itemsPerPage, setItemsPerPage] = useState(5); //TODO: move pagination to own component
 
   const lastIndex = currentPage * itemsPerPage;
   const firstIndex = lastIndex - itemsPerPage;
