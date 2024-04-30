@@ -5,16 +5,20 @@ import Image from "react-bootstrap/Image";
 import { ImageMagnifier } from "./ImageMagnifier";
 
 export interface ArtCardProps {
-  description: string;
-  link: string;
-  medium?: string;
+  id: string;
+  datetime: string;
+  height: number;
+  image: string;
+  medium: string;
   thumbnail: string;
   title: string;
-  type?: string;
+  type: string;
+  width: number;
+  year: number;
 }
 
 export const ArtCard: React.FC<ArtCardProps> = (props) => {
-  const { description, link, thumbnail, title } = props;
+  const { height, image, medium, thumbnail, title, width, year } = props;
   const [showFullImage, setShowFullImage] = useState(false);
   const [showMagnifier, setShowMagnifier] = useState(false);
   const [[x, y], setXY] = useState([0, 0]);
@@ -51,7 +55,7 @@ export const ArtCard: React.FC<ArtCardProps> = (props) => {
           style={{ cursor: "zoom-in" }}
         />
         <Card.Body>
-          <Card.Text>{description}</Card.Text>
+          <Card.Text>{`${title}, ${width}x${height}, ${medium}, ${year}`}</Card.Text>
         </Card.Body>
       </Card>
       {showFullImage && (
@@ -66,8 +70,8 @@ export const ArtCard: React.FC<ArtCardProps> = (props) => {
           <Modal.Body className="text-center">
             <Image
               style={{ cursor: "none" }}
-              src={link}
-              alt={description}
+              src={image}
+              alt={`${title}, ${width}x${height}, ${medium}, ${year}`}
               fluid
               onMouseEnter={handleMouseEnter}
               onMouseLeave={() => setShowMagnifier(false)}
@@ -80,7 +84,7 @@ export const ArtCard: React.FC<ArtCardProps> = (props) => {
                 zoomLevel={zoomLevel}
                 coordinates={[x, y]}
                 imageSize={[imgWidth, imgHeight]}
-                imageUrl={link}
+                imageUrl={image}
               />
             )}
           </Modal.Body>

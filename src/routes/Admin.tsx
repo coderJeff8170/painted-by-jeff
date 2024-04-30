@@ -8,28 +8,44 @@ import { FormEvent, useState } from "react";
 import axios from "axios";
 
 export const Admin: React.FC = () => {
-  const [id, setId] = useState("");
+  const [thumbnail, setThumbnail] = useState("");
+  const [width, setWidth] = useState("");
+  const [height, setHeight] = useState("");
+  const [image, setImage] = useState("");
+  const [medium, setMedium] = useState("");
+  const [year, setYear] = useState("");
   const [title, setTitle] = useState("");
-  const [views, setViews] = useState("");
+  const [type, setType] = useState("");
 
   const clearForm = () => {
-    setId("");
+    setThumbnail("");
+    setWidth("");
+    setHeight("");
+    setImage("");
+    setMedium("");
+    setYear("");
     setTitle("");
-    setViews("");
-  }
+    setType("");
+  };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    axios.post("http://localhost:3000/posts", {
-      // id: id,
-      title: title,
-      views: views,
-    }).then((response) => {
-      console.log(response.data);
-    });
+    const dateTime = new Date();
+    axios
+      .post("http://localhost:3000/art", {
+        datetime: dateTime,
+        description: `${title}, ${width}x${height}, ${medium}, ${year}`,
+        medium: medium,
+        thumbnail: thumbnail,
+        image: image,
+        title: title,
+        year: year,
+      })
+      .then((response) => {
+        console.log(response.data);
+      });
 
     event.preventDefault();
     event.stopPropagation();
-    console.log(id, title, views);
     clearForm();
   };
   // perhaps add a grid that displays the current artwork in the database, and allows for editing and deletion
@@ -43,28 +59,103 @@ export const Admin: React.FC = () => {
             </Col>
           </Row>
           <Row className="justify-content-center">
-            <Col md={6} lg={4} >
+            <Col md={6} lg={4}>
               <Form onSubmit={handleSubmit}>
-                <Form.Group
-                  className="mb-3"
-                  controlId="exampleForm.ControlInput1"
-                >
-                  <Form.Label>id</Form.Label>
-                  <Form.Control type="number" placeholder="id number" value={id} onChange={e => setId(e.target.value)}/>
-                </Form.Group>
                 <Form.Group
                   className="mb-3"
                   controlId="exampleForm.ControlInput2"
                 >
                   <Form.Label>Title</Form.Label>
-                  <Form.Control type="text" placeholder="title" value={title} onChange={e => setTitle(e.target.value)}/>
+                  <Form.Control
+                    type="text"
+                    placeholder="title"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput2"
+                >
+                  <Form.Label>Medium</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="medium"
+                    value={medium}
+                    onChange={(e) => setMedium(e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput2"
+                >
+                  <Form.Label>Type</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="type"
+                    value={type}
+                    onChange={(e) => setType(e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput2"
+                >
+                  <Form.Label>Height</Form.Label>
+                  <Form.Control
+                    type="number"
+                    placeholder="height"
+                    value={height}
+                    onChange={(e) => setHeight(e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput2"
+                >
+                  <Form.Label>Width</Form.Label>
+                  <Form.Control
+                    type="number"
+                    placeholder="width"
+                    value={width}
+                    onChange={(e) => setWidth(e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput2"
+                >
+                  <Form.Label>ThumbnailFileName</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="thumbnail file name"
+                    value={thumbnail}
+                    onChange={(e) => setThumbnail(e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlInput2"
+                >
+                  <Form.Label>ImageFileName</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="image file name"
+                    value={image}
+                    onChange={(e) => setImage(e.target.value)}
+                  />
                 </Form.Group>
                 <Form.Group
                   className="mb-3"
                   controlId="exampleForm.ControlInput3"
                 >
-                  <Form.Label>Views</Form.Label>
-                  <Form.Control type="number" placeholder="views" value={views} onChange={e => setViews(e.target.value)}/>
+                  <Form.Label>Year</Form.Label>
+                  <Form.Control
+                    type="number"
+                    placeholder="year"
+                    value={year}
+                    onChange={(e) => setYear(e.target.value)}
+                  />
                 </Form.Group>
                 <Button type="submit">Submit form</Button>
               </Form>

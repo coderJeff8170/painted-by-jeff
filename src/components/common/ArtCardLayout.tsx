@@ -16,11 +16,14 @@ export const ArtCardLayout: React.FC<{ cards: ArtCardProps[] }> = ({
           return (
             <ArtCard
               title={card.title}
-              description={card.description}
+              width={card.width}
+              height={card.height}
+              medium={card.medium}
+              year={card.year}
+              type={card.type}
               thumbnail={`${import.meta.env.VITE_THUMBNAIL_PATH}${card.thumbnail}`}
-              link={`${import.meta.env.VITE_FULL_SIZE_IMAGE_PATH}${card.link}`}
-              key={index}
-            />
+              image={`${import.meta.env.VITE_FULL_SIZE_IMAGE_PATH}${card.image}`}
+              key={index} id={""} datetime={""}            />
           );
         })}
       </Col>

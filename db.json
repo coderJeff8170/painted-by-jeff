@@ -1,36 +1,30 @@
 {
   "art": [
     {
-      "description": "Alethea, 16x12, Acrylic on Canvas, 2021",
+      "id": "1",
+      "datetime": "2021-07-01",
+      "description": "Amelia, 11x14, Acrylic on Canvas, 2011",
+      "height": 16,
+      "width": 12,
       "thumbnail": "TAlethea.jpg",
       "title": "Alethea",
-      "link": "Alethea16x12.jpg",
-      "medium": "Acrylic",
-      "type": "portrait"
+      "image": "Alethea16x12.jpg",
+      "medium": "Acrylic on Canvas",
+      "type": "portrait",
+      "year": 2021
     },
     {
-      "description": "Alethea, 16x12, Acrylic on Canvas, 2021",
-      "thumbnail": "TAlethea.jpg",
-      "title": "Alethea",
-      "link": "Alethea16x12.jpg",
-      "medium": "Acrylic",
-      "type": "portrait"
-    },
-    {
-      "description": "Alethea, 16x12, Acrylic on Canvas, 2021",
-      "thumbnail": "TAlethea.jpg",
-      "title": "Alethea",
-      "link": "Alethea16x12.jpg",
-      "medium": "Acrylic",
-      "type": "portrait"
-    },
-    {
-      "description": "Alethea, 16x12, Acrylic on Canvas, 2021",
-      "thumbnail": "TAlethea.jpg",
-      "title": "Alethea",
-      "link": "Alethea16x12.jpg",
-      "medium": "Acrylic",
-      "type": "portrait"
+      "id": "9f89",
+      "datetime": "2024-04-30T01:46:39.645Z",
+      "height": 16,
+      "width": 12,
+      "description": "Amelia, 11x14, Acrylic on Canvas, 2011",
+      "medium": "Acrylic on Canvas",
+      "thumbnail": "TAmelia.jpg",
+      "image": "Amelia11x14.jpg",
+      "title": "Amelia",
+      "type": "portrait",
+      "year": 2011
     }
   ],
   "posts": [
