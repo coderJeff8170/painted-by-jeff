@@ -30,30 +30,38 @@ export const Admin: React.FC = () => {
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    //TODO: if form is not valid, do not submit
+    //TODO: if title already exists, do not submit
+    //TODO: sort into paintings, drawings, photography, etc, based on medium
     const dateTime = new Date();
     axios
       .post("http://localhost:3000/art", {
         datetime: dateTime,
         description: `${title}, ${width}x${height}, ${medium}, ${year}`,
-        height: height,
+        height: parseInt(height),
         image: image,
         medium: medium,
         thumbnail: thumbnail,
         title: title,
         type: type,
-        width: width,
-        year: year,
+        width: parseInt(width),
+        year: parseInt(year),
       })
       .then((response) => {
         console.log(response.data);
+        //TODO: snackbar notification
+      })
+      .catch(error => {
+        console.error(error);
+        //TODO: snackbar notification
       });
 
     event.preventDefault();
     event.stopPropagation();
     clearForm();
   };
-  // move form to a modal with an add button to activate. 
-  // clicking a row in the grid should display information in the form and display the thumbnail
+  //TODO: move form to a modal with an add button to activate. 
+  //TODO: clicking a row in the grid should display information in the form and display the thumbnail
   return (
     <>
       {import.meta.env.MODE === "development" && (

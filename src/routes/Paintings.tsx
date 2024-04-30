@@ -10,6 +10,7 @@ import { StaticDataContext } from "../context/StaticDataContext";
 export const Paintings: React.FC = () => {
   //TODO: add filter functionality and export to a custom hook...
   const data = useContext(StaticDataContext);
+  const paintings = data.art.filter((art) => art.type === "painting");
   //TODO: filter data based on medium === contains acrylic or oil, etc.
 
   return (
@@ -20,7 +21,7 @@ export const Paintings: React.FC = () => {
             <Header title="This is the paintings page!" />
           </Col>
         </Row>
-        <ArtCardLayout cards={data.art} />
+        <ArtCardLayout cards={paintings} />
       </Container>
     </>
   );
