@@ -11,7 +11,7 @@ export const Paintings: React.FC = () => {
   //TODO: add filter functionality and export to a custom hook...
   const data = useContext(StaticDataContext);
   const paintings = data.art.filter((art) => art.type === "painting");
-  //TODO: filter data based on medium === contains acrylic or oil, etc.
+  
 
   return (
     <>
