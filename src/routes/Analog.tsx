@@ -35,7 +35,7 @@ export const Analog: React.FC = () => {
       <Container fluid>
         <Row>
           <Col>
-            <Header title="This is the analog page!" />
+            <Header title="Analog" />
           </Col>
         </Row>
         

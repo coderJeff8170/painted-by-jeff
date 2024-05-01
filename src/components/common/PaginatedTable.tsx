@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { Table, Pagination } from "react-bootstrap";
 import { StaticDataContext } from "../../context/StaticDataContext";
 import { Dropdown, DropdownButton, Button, Row, Col } from "react-bootstrap";
+import { EditIcon } from "../../assets/icons/EditIcon";
+import { DeleteModal } from "./DeleteModal";
 
 export const PaginatedTable = () => {
   const data2 = useContext(StaticDataContext);
@@ -53,14 +55,12 @@ export const PaginatedTable = () => {
     return items;
   };
 
-  //TODO: figure out how to make this a generic component by moving the data to a prop
+  //TODO: move the actions to a view above the table that shows only when a row is selected
   return (
     <>
       <Table striped bordered hover className="m-0">
         <thead>
           <tr>
-            {/* can we map the keys in the prop object coming in and use them to generate the headings? */}
-
             <th>Title</th>
             <th>Description</th>
             <th>Type</th>
@@ -76,10 +76,24 @@ export const PaginatedTable = () => {
               <td>{item.type}</td>
               <td>{item.datetime}</td>
               <td className="text-center">
-                <Button variant="primary" className="me-2">
-                  Edit
+                <Button
+                  variant="primary"
+                  className="me-2"
+                  title="Edit"
+                  aria-label="Edit"
+                  aria-live="polite"
+                >
+                  <EditIcon />
                 </Button>
-                <Button variant="danger">Delete</Button>
+                {/* <Button
+                  variant="danger"
+                  title="Delete"
+                  aria-label="Delete"
+                  aria-live="polite"
+                >
+                  <DeleteIcon />
+                </Button> */}
+                <DeleteModal id={item.id} />
               </td>
             </tr>
           ))}
