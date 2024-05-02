@@ -9,9 +9,9 @@ interface IFormData {
   title: string;
   medium: string;
   type: string;
-  width: number | undefined;
-  height: number | undefined;
-  year: number | undefined;
+  width: number;
+  height: number;
+  year: number
   image: string;
   thumbnail: string;
   datetime?: string; // Optional since it will be added on form submission
@@ -27,12 +27,13 @@ export const ArtCreateUpdateModal = ({ id }: ArtCreateUpdateModalProps) => {
     title: "",
     medium: "",
     type: "",
-    width: undefined,//not ideal
-    height: undefined,
-    year: undefined,
+    width: 0,
+    height: 0,
+    year: 0,
     image: "",
     thumbnail: "",
   };
+  const [formData, setFormData] = useState<IFormData>(initialFormData);
   const [show, setShow] = useState(false);
   const handleClose = () => {
     setShow(false);
@@ -41,63 +42,42 @@ export const ArtCreateUpdateModal = ({ id }: ArtCreateUpdateModalProps) => {
     }
   };
   const handleShow = () => setShow(true);
-  const [formData, setFormData] = useState<IFormData>(initialFormData);
-
-  const getExistingData = (id: string) => {
-    //fetch data from API using id
-    axios
-      .get(`http://localhost:3000/art/${id}`)
-      .then((response) => {
-        const data = response.data;
-        // Update the form data with the fetched data
-        setFormData(data);
-      })
-      .catch((error) => {
-        console.error(error);
-        // TODO: Handle error
-      });
-    //return data
-  };
 
   useEffect(() => {
-    if (id) {
-      getExistingData(id);
-    }
+    let isMounted = true;
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3000/art/${id}`);
+        if (isMounted) setFormData(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    
+    if (id) fetchData();
+    return () => {
+      isMounted = false;
+    };
   }, [id]);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const updatedData = {
       ...formData,
       datetime: new Date().toISOString(),
       description: `${formData.title}, ${formData.width}x${formData.height}, ${formData.medium}, ${formData.year}`,
     };
-    setFormData(updatedData);
-    //if id exists, call the update endpoint
-    //if id does not exist, call the create endpoint
-    if (id) {
-      axios
-        .put(`http://localhost:3000/art/${id}`, updatedData)
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    } else {
-      axios
-        .post("http://localhost:3000/art", updatedData)
-        .then((response) => {
-          console.log(response);
-          //TODO: snackbar notification
-        })
-        .catch((error) => {
-          console.error(error);
-          //TODO: snackbar notification
-        });
+  
+    try {
+      const response = id
+        ? await axios.put(`http://localhost:3000/art/${id}`, updatedData)
+        : await axios.post("http://localhost:3000/art", updatedData);
+      console.log(response);
+      handleClose();
+    } catch (error) {
+      console.error(error);
+      // Handle errors here, possibly with a user notification
     }
-
-    handleClose(); // Close the modal after submission
   };
 
   return (
@@ -116,7 +96,7 @@ export const ArtCreateUpdateModal = ({ id }: ArtCreateUpdateModalProps) => {
       <Modal show={show} onHide={handleClose}>
         <Form onSubmit={handleSubmit}>
           <Modal.Header closeButton>
-            <Modal.Title>New Artwork</Modal.Title>
+            <Modal.Title>{id ? `Edit ${formData.title}` : 'New Artwork'}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form.Group controlId="formTitle">
@@ -160,7 +140,7 @@ export const ArtCreateUpdateModal = ({ id }: ArtCreateUpdateModalProps) => {
               <Form.Control
                 type="number"
                 placeholder="Enter year"
-                value={formData.year}
+                value={formData.year ? formData.year : ""}
                 onChange={(e) =>
                   setFormData({ ...formData, year: parseInt(e.target.value) })
                 }
@@ -172,7 +152,7 @@ export const ArtCreateUpdateModal = ({ id }: ArtCreateUpdateModalProps) => {
               <Form.Control
                 type="number"
                 placeholder="Enter width"
-                value={formData.width}
+                value={formData.width ? formData.width : ""}
                 onChange={(e) =>
                   setFormData({ ...formData, width: parseInt(e.target.value) })
                 }
@@ -184,7 +164,7 @@ export const ArtCreateUpdateModal = ({ id }: ArtCreateUpdateModalProps) => {
               <Form.Control
                 type="number"
                 placeholder="Enter height"
-                value={formData.height}
+                value={formData.height ? formData.height : ""}
                 onChange={(e) =>
                   setFormData({ ...formData, height: parseInt(e.target.value) })
                 }
@@ -218,7 +198,7 @@ export const ArtCreateUpdateModal = ({ id }: ArtCreateUpdateModalProps) => {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
-              Close
+              Cancel
             </Button>
             <Button variant="primary" type="submit">
               Submit

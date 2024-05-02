@@ -23,7 +23,7 @@ export const PaginatedTable = () => {
   };
 
   const renderDropdownItems = () => {
-    const pageSizes = [5, 10, 25, 50, 100]; //TODO: bring this in via props?
+    const pageSizes = [5, 10, 25, 50, 100];
     const items = [];
     for (let i = 0; i <= pageSizes.length; i++) {
       items.push(
@@ -76,17 +76,8 @@ export const PaginatedTable = () => {
               <td>{item.type}</td>
               <td>{item.datetime}</td>
               <td className="text-center">
-                {/* <Button
-                  variant="primary"
-                  className="me-2"
-                  title="Edit"
-                  aria-label="Edit"
-                  aria-live="polite"
-                >
-                  <EditIcon />
-                </Button> */}
-                <ArtCreateUpdateModal id={item.id}/>
-                <DeleteModal id={item.id} />
+                <ArtCreateUpdateModal id={item.id} />
+                <DeleteModal id={item.id} title={item.title} />
               </td>
             </tr>
           ))}

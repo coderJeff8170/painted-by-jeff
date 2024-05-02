@@ -3,7 +3,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { PaginatedTable } from "../components/common/PaginatedTable";
-//import { ArtSubmissionModal } from "../components/common/ArtSubmissionModal";
 import { ArtCreateUpdateModal } from "../components/common/ArtCreateUpdateModal";
 
 export const Admin: React.FC = () => {
