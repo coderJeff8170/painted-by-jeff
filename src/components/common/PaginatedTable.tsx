@@ -85,14 +85,6 @@ export const PaginatedTable = () => {
                 >
                   <EditIcon />
                 </Button>
-                {/* <Button
-                  variant="danger"
-                  title="Delete"
-                  aria-label="Delete"
-                  aria-live="polite"
-                >
-                  <DeleteIcon />
-                </Button> */}
                 <DeleteModal id={item.id} />
               </td>
             </tr>
