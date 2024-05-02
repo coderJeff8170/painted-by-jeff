@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { Table, Pagination } from "react-bootstrap";
 import { StaticDataContext } from "../../context/StaticDataContext";
-import { Dropdown, DropdownButton, Button, Row, Col } from "react-bootstrap";
-import { EditIcon } from "../../assets/icons/EditIcon";
+import { Dropdown, DropdownButton, Row, Col } from "react-bootstrap";
 import { DeleteModal } from "./DeleteModal";
+import { ArtCreateUpdateModal } from "./ArtCreateUpdateModal";
 
 export const PaginatedTable = () => {
   const data2 = useContext(StaticDataContext);
@@ -76,7 +76,7 @@ export const PaginatedTable = () => {
               <td>{item.type}</td>
               <td>{item.datetime}</td>
               <td className="text-center">
-                <Button
+                {/* <Button
                   variant="primary"
                   className="me-2"
                   title="Edit"
@@ -84,7 +84,8 @@ export const PaginatedTable = () => {
                   aria-live="polite"
                 >
                   <EditIcon />
-                </Button>
+                </Button> */}
+                <ArtCreateUpdateModal id={item.id}/>
                 <DeleteModal id={item.id} />
               </td>
             </tr>

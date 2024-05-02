@@ -38,6 +38,19 @@
       "type": "drawing",
       "width": 18,
       "year": 2004
+    },
+    {
+      "id": "dd74",
+      "title": "Jeff",
+      "medium": "Acrylic on Canvas",
+      "type": "painting",
+      "width": 44,
+      "height": 44,
+      "year": 4444,
+      "image": "Jeff16x20.jpg",
+      "thumbnail": "TJeff.jpg",
+      "datetime": "2024-05-02T15:02:00.219Z",
+      "description": "Jeff, 44x44, Acrylic on Canvas, 4444"
     }
   ]
 }

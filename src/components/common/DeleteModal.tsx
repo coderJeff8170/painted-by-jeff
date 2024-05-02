@@ -5,14 +5,11 @@ import Form from "react-bootstrap/Form";
 import axios from "axios";
 import { DeleteIcon } from "../../assets/icons/DeleteIcon";
 
-export const DeleteModal = (props: { id: string; }) => {
-  console.log(props.id);
-
+export const DeleteModal = (props: { id: string }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
