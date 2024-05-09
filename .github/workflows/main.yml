@@ -29,6 +29,9 @@ jobs:
       - name: Build with Vite
         run: pnpm run build
 
+      - name: Run unit tests
+        run: pnpm test
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
