@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Footer.module.css";
 
 interface FooterProps {
   title: string;
@@ -6,8 +7,9 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ title }) => {
   return (
-    <footer style={{ bottom: 0, width: "100%", textAlign: "center", margin: "2rem 0 1rem 0 " }}>
+    <footer className={styles.footer}>
       Proudly built with React.ts in React Bootstrap &copy; 2024 by {title}
     </footer>
   );
 };
+
