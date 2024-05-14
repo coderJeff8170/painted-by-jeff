@@ -20,9 +20,12 @@ interface IFormData {
 
 interface ArtCreateUpdateModalProps {
   id: string;
+  error: string | null;
+  setError: (error: string | null) => void;
 }
 
-export const ArtCreateUpdateModal = ({ id }: ArtCreateUpdateModalProps) => {
+export const ArtCreateUpdateModal = ({ id, error, setError }: ArtCreateUpdateModalProps) => {
+  const serverDownError = "Failed to communicate with the server. Try running the app and server locally and refresh the page.";
   const initialFormData: IFormData = {
     title: "",
     medium: "",
@@ -51,6 +54,7 @@ export const ArtCreateUpdateModal = ({ id }: ArtCreateUpdateModalProps) => {
         if (isMounted) setFormData(response.data);
       } catch (error) {
         console.error(error);
+        if (isMounted) setError(serverDownError);
       }
     };
     
@@ -58,7 +62,7 @@ export const ArtCreateUpdateModal = ({ id }: ArtCreateUpdateModalProps) => {
     return () => {
       isMounted = false;
     };
-  }, [id]);
+  }, [id, setError, error]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -76,7 +80,7 @@ export const ArtCreateUpdateModal = ({ id }: ArtCreateUpdateModalProps) => {
       handleClose();
     } catch (error) {
       console.error(error);
-      // Handle errors here, possibly with a user notification
+      setError(serverDownError);
     }
   };
 

@@ -5,7 +5,12 @@ import { Dropdown, DropdownButton, Row, Col } from "react-bootstrap";
 import { DeleteModal } from "./DeleteModal";
 import { ArtCreateUpdateModal } from "./ArtCreateUpdateModal";
 
-export const PaginatedTable = () => {
+interface PaginatedTableProps {
+  error: string | null;
+  setError: (error: string | null) => void;
+}
+
+export const PaginatedTable = ({error, setError}: PaginatedTableProps) => {
   const data2 = useContext(StaticDataContext);
   const data = data2.art;
 
@@ -76,7 +81,7 @@ export const PaginatedTable = () => {
               <td>{item.type}</td>
               <td>{item.datetime}</td>
               <td className="text-center">
-                <ArtCreateUpdateModal id={item.id} />
+                <ArtCreateUpdateModal id={item.id} error={error} setError={setError}/>
                 <DeleteModal id={item.id} title={item.title} />
               </td>
             </tr>
