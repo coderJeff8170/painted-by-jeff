@@ -3,7 +3,6 @@ import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { NavLink } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export const Home: React.FC = () => {
