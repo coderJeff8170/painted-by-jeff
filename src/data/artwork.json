@@ -77,6 +77,19 @@
       "thumbnail": "TArmyAnts.jpg",
       "datetime": "2024-05-15T16:15:43.541Z",
       "description": "Army Ants, 18x24, Acrylic on Canvas, 2003"
+    },
+    {
+      "id": "038b",
+      "title": "Mary London",
+      "medium": "Silver Gelatin Print",
+      "type": "photograph",
+      "width": 8,
+      "height": 10,
+      "year": 1999,
+      "image": "MaryLondon10x8.jpg",
+      "thumbnail": "TMaryLondon.jpg",
+      "datetime": "2024-05-15T20:44:50.780Z",
+      "description": "Mary London, 8x10, Silver Gelatin Print, 1999"
     }
   ]
 }
