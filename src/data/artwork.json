@@ -38,6 +38,45 @@
       "type": "drawing",
       "width": 18,
       "year": 2004
+    },
+    {
+      "id": "67f6",
+      "title": "Angel Pook",
+      "medium": "Acrylic on Canvas",
+      "type": "painting",
+      "width": 18,
+      "height": 24,
+      "year": 2010,
+      "image": "AngelPook18x24.jpg",
+      "thumbnail": "TAngelPook.jpg",
+      "datetime": "2024-05-15T16:02:00.178Z",
+      "description": "Angel Pook, 18x24, Acrylic on Canvas, 2010"
+    },
+    {
+      "id": "6d71",
+      "title": "Anne Robinson",
+      "medium": "Acrylic on Canvas",
+      "type": "painting",
+      "width": 24,
+      "height": 18,
+      "year": 2005,
+      "image": "Anne24x18.jpg",
+      "thumbnail": "TAnne.jpg",
+      "datetime": "2024-05-15T16:04:29.160Z",
+      "description": "Anne Robinson, 24x18, Acrylic on Canvas, 2005"
+    },
+    {
+      "id": "5ff0",
+      "title": "Army Ants",
+      "medium": "Acrylic on Canvas",
+      "type": "painting",
+      "width": 18,
+      "height": 24,
+      "year": 2003,
+      "image": "ArmyAnts18x24.jpg",
+      "thumbnail": "TArmyAnts.jpg",
+      "datetime": "2024-05-15T16:15:43.541Z",
+      "description": "Army Ants, 18x24, Acrylic on Canvas, 2003"
     }
   ]
 }
