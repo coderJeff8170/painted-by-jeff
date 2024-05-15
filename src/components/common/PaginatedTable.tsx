@@ -12,7 +12,8 @@ interface PaginatedTableProps {
 
 export const PaginatedTable = ({error, setError}: PaginatedTableProps) => {
   const data2 = useContext(StaticDataContext);
-  const data = data2.art;
+  const data = data2.art.sort((a, b) => (a.datetime > b.datetime ? -1 : 1));
+  //TODO: add sorting functionality to table headers
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(5); //TODO: move pagination to own component

@@ -8,11 +8,12 @@ import { StaticDataContext } from "../context/StaticDataContext";
 import { Dropdown, Container, DropdownButton } from "react-bootstrap";
 
 export const Analog: React.FC = () => {
-  //TODO: add filter functionality and export to a custom hook...
+  //TODO: export to a custom hook...
   const [artType, setArtType] = useState("all");
   const data = useContext(StaticDataContext);
-  const paintings = artType== "all" ? data.art : data.art.filter((art) => art.type === artType);
-  //TODO: investigate the potential of adding more filters (such as for title) on 'paintings' array - might require change of const to let
+  const alphabetizedData = data.art.sort((a, b) => a.title < b.title ? -1 : 1);
+  const artwork = artType === "all" ? alphabetizedData : alphabetizedData.filter((art) => art.type === artType);
+  //TODO: investigate the potential of adding more filters (such as for title) on 'artwork' array
   //TODO: also, because there will be many, perhaps pagination will be necessary
   const onArtChange = (artType: string) => {
     setArtType(artType);
@@ -38,21 +39,19 @@ export const Analog: React.FC = () => {
             <Header title="Analog" />
           </Col>
         </Row>
-        
         <Row>
-        <Col className="d-flex align-items-center justify-content-center">
-        <span className="m-1">Filter by:</span>
-          <DropdownButton
-            id="dropdown-basic-button"
-            className="m-1"
-            title={artType}
-          >
-            {renderDropdownItems()}
-          </DropdownButton>
-        </Col>
-      </Row>
-        
-        <ArtCardLayout cards={paintings} />
+          <Col className="d-flex align-items-center justify-content-center">
+            <span className="m-1">Filter by:</span>
+            <DropdownButton
+              id="dropdown-basic-button"
+              className="m-1"
+              title={artType}
+            >
+              {renderDropdownItems()}
+            </DropdownButton>
+          </Col>
+        </Row>
+        <ArtCardLayout cards={artwork} />
       </Container>
     </>
   );
