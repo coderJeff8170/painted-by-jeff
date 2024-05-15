@@ -13,8 +13,10 @@ export const ArtCardLayout: React.FC<{ cards: ArtCardProps[] }> = ({
         className="d-flex flex-wrap align-items-center justify-content-center"
       >
         {cards.map((card: ArtCardProps, index) => {
+          console.log(card)
           return (
             <ArtCard
+              description={card.description}
               title={card.title}
               width={card.width}
               height={card.height}

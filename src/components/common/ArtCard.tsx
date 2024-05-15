@@ -7,6 +7,7 @@ import { ImageMagnifier } from "./ImageMagnifier";
 export interface ArtCardProps {
   id: string;
   datetime: string;
+  description: string;
   height: number;
   image: string;
   medium: string;
@@ -18,7 +19,7 @@ export interface ArtCardProps {
 }
 
 export const ArtCard: React.FC<ArtCardProps> = (props) => {
-  const { height, image, medium, thumbnail, title, width, year } = props;
+  const { description, image, thumbnail, title } = props;
   const [showFullImage, setShowFullImage] = useState(false);
   const [showMagnifier, setShowMagnifier] = useState(false);
   const [[x, y], setXY] = useState([0, 0]);
@@ -55,7 +56,7 @@ export const ArtCard: React.FC<ArtCardProps> = (props) => {
           style={{ cursor: "zoom-in" }}
         />
         <Card.Body>
-          <Card.Text>{`${title}, ${width}x${height}, ${medium}, ${year}`}</Card.Text>
+          <Card.Text>{description}</Card.Text>
         </Card.Body>
       </Card>
       {showFullImage && (
@@ -71,7 +72,7 @@ export const ArtCard: React.FC<ArtCardProps> = (props) => {
             <Image
               style={{ cursor: "none" }}
               src={image}
-              alt={`${title}, ${width}x${height}, ${medium}, ${year}`}
+              alt={description}
               fluid
               onMouseEnter={handleMouseEnter}
               onMouseLeave={() => setShowMagnifier(false)}
