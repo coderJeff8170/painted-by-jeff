@@ -7,7 +7,7 @@ vi.mock("../components/common/Navigation", () => ({
   Navigation: () => <div>Navigation Component</div>,
 }));
 
-vi.mock("../components/common/Footer", () => ({
+vi.mock("../components/common/Footer/Footer", () => ({
   Footer: () => <div>Footer Component</div>,
 }));
 
@@ -19,8 +19,8 @@ describe("Root component", () => {
       </Router>
     );
 
-    expect(screen.getByText("Navigation Component")).toBeDefined();
+    expect(screen.getByText("Navigation Component")).toBeInTheDocument();
 
-    expect(screen.getByText("Footer Component")).toBeDefined();
+    expect(screen.getByText("Footer Component")).toBeInTheDocument();
   });
 });
