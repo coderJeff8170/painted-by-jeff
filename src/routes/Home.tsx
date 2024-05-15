@@ -3,6 +3,8 @@ import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { NavLink } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export const Home: React.FC = () => {
   return (
@@ -15,11 +17,13 @@ export const Home: React.FC = () => {
         </Row>
         <Row style={{ height: "500px" }}>
           <Col className="text-center" style={{ height: "100%" }}>
-            <Image
-              src="CAprogress2.gif"
-              thumbnail
-              style={{ maxHeight: "100%", width: "auto" }}
-            />
+            <Link to="/Analog">
+              <Image
+                src="CAprogress2.gif"
+                thumbnail
+                style={{ maxHeight: "100%", width: "auto" }}
+              />
+            </Link>
           </Col>
         </Row>
       </Container>
