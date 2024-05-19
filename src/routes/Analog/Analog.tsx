@@ -1,13 +1,13 @@
-import Header from "../components/common/Header/Header";
+import Header from "../../components/common/Header/Header";
 // import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { ArtCardLayout } from "../components/common/ArtCardLayout";
+import { ArtCardLayout } from "../../components/common/ArtCardLayout";
 import { useContext, useState } from "react";
-import { StaticDataContext } from "../context/StaticDataContext";
+import { StaticDataContext } from "../../context/StaticDataContext";
 import { Dropdown, Container, DropdownButton } from "react-bootstrap";
 
-export const Analog: React.FC = () => {
+const Analog: React.FC = () => {
   //TODO: export to a custom hook...
   const [artType, setArtType] = useState("all");
   const data = useContext(StaticDataContext);
@@ -61,3 +61,5 @@ export const Analog: React.FC = () => {
     </>
   );
 };
+
+export default Analog;

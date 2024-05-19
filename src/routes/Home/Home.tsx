@@ -1,17 +1,20 @@
-import Header from "../components/common/Header/Header";
+import Header from "../../components/common/Header/Header";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 
-export const Home: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <>
       <Container fluid>
         <Row>
           <Col>
-            <Header title="Welcome to the new and improved PaintedByJeff!" subtitle="Jeff is cool" />
+            <Header
+              title="Welcome to the new and improved PaintedByJeff!"
+              subtitle="Jeff is cool"
+            />
           </Col>
         </Row>
         <Row style={{ height: "500px" }}>
@@ -29,3 +32,5 @@ export const Home: React.FC = () => {
     </>
   );
 };
+
+export default Home;

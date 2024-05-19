@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Footer from "../../components/common/Footer/Footer";
 
-export const Root: React.FC = () => {
+const Root: React.FC = () => {
   return (
     <Container fluid className="d-flex flex-column vh-100">
       <Row>
@@ -26,3 +26,5 @@ export const Root: React.FC = () => {
     </Container>
   );
 };
+
+export default Root;

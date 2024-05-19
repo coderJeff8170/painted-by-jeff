@@ -4,11 +4,11 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { Home } from "./routes/Home";
-import { Root } from "./routes/Root/Root";
-import { Digital } from "./routes/Digital";
-import { Analog } from "./routes/Analog";
-import { Admin } from "./routes/Admin";
+import Home from "./routes/Home/Home";
+import Root from "./routes/Root/Root";
+import Digital from "./routes/Digital/Digital";
+import Analog from "./routes/Analog/Analog";
+import Admin from "./routes/Admin/Admin";
 
 const router = createBrowserRouter([
   {

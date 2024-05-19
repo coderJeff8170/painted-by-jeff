@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { Root } from "./Root";
 import { BrowserRouter as Router } from "react-router-dom";
+import Root from "./Root";
 
 vi.mock("../../components/common/Navigation", () => ({
   default: () => <div>Navigation Component</div>,

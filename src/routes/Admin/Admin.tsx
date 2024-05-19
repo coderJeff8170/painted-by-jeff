@@ -1,13 +1,13 @@
-import Header from "../components/common/Header/Header";
+import Header from "../../components/common/Header/Header";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { PaginatedTable } from "../components/common/PaginatedTable";
-import { ArtCreateUpdateModal } from "../components/common/ArtCreateUpdateModal";
+import { PaginatedTable } from "../../components/common/PaginatedTable";
+import { ArtCreateUpdateModal } from "../../components/common/ArtCreateUpdateModal";
 import { useState } from "react";
 import { Alert } from "react-bootstrap";
 
-export const Admin: React.FC = () => {
+const Admin: React.FC = () => {
   //TODO: clicking a row in the grid should display information in the form and display the thumbnail
   const [error, setError] = useState<string | null>(null);
 
@@ -53,3 +53,5 @@ export const Admin: React.FC = () => {
     </>
   );
 };
+
+export default Admin;

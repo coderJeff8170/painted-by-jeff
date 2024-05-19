@@ -1,9 +1,9 @@
-import Header from "../components/common/Header/Header";
+import Header from "../../components/common/Header/Header";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-export const Digital: React.FC = () => {
+const Digital: React.FC = () => {
   return (
     <>
       <Container fluid>
@@ -16,3 +16,5 @@ export const Digital: React.FC = () => {
     </>
   );
 };
+
+export default Digital;
