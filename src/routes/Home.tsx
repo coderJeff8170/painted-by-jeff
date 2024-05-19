@@ -1,4 +1,4 @@
-import { Header } from "../components/common/Header";
+import Header from "../components/common/Header/Header";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
@@ -11,7 +11,7 @@ export const Home: React.FC = () => {
       <Container fluid>
         <Row>
           <Col>
-            <Header title="Welcome to the new and improved PaintedByJeff!" />
+            <Header title="Welcome to the new and improved PaintedByJeff!" subtitle="Jeff is cool" />
           </Col>
         </Row>
         <Row style={{ height: "500px" }}>

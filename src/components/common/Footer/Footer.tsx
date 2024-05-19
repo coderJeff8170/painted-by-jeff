@@ -1,15 +1,14 @@
-import React from "react";
-import styles from "./Footer.module.css";
-
 interface FooterProps {
   title: string;
 }
 
-export const Footer: React.FC<FooterProps> = ({ title }) => {
+const Footer: React.FC<FooterProps> = ({ title }) => {
   return (
-    <footer className={styles.footer}>
+    <footer className="mt-4 mb-4 text-center">
       Proudly built with React.ts in React Bootstrap &copy; 2024 by {title}
     </footer>
   );
 };
+
+export default Footer;
 

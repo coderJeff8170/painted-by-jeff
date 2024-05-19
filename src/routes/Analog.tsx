@@ -1,4 +1,4 @@
-import { Header } from "../components/common/Header";
+import Header from "../components/common/Header/Header";
 // import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -11,8 +11,13 @@ export const Analog: React.FC = () => {
   //TODO: export to a custom hook...
   const [artType, setArtType] = useState("all");
   const data = useContext(StaticDataContext);
-  const alphabetizedData = data.art.sort((a, b) => a.title < b.title ? -1 : 1);
-  const artwork = artType === "all" ? alphabetizedData : alphabetizedData.filter((art) => art.type === artType);
+  const alphabetizedData = data.art.sort((a, b) =>
+    a.title < b.title ? -1 : 1
+  );
+  const artwork =
+    artType === "all"
+      ? alphabetizedData
+      : alphabetizedData.filter((art) => art.type === artType);
   //TODO: investigate the potential of adding more filters (such as for title) on 'artwork' array
   //TODO: also, because there will be many, perhaps pagination will be necessary
   const onArtChange = (artType: string) => {

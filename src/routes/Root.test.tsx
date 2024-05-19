@@ -8,7 +8,7 @@ vi.mock("../components/common/Navigation", () => ({
 }));
 
 vi.mock("../components/common/Footer/Footer", () => ({
-  Footer: () => <div>Footer Component</div>,
+  default: () => <div>Footer Component</div>,
 }));
 
 describe("Root component", () => {

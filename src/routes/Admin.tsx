@@ -1,4 +1,4 @@
-import { Header } from "../components/common/Header";
+import Header from "../components/common/Header/Header";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -19,7 +19,11 @@ export const Admin: React.FC = () => {
             <Col>
               <Header title="AdminPage" />
               {error && (
-                <Alert variant="danger" onClose={() => setError(null)} dismissible>
+                <Alert
+                  variant="danger"
+                  onClose={() => setError(null)}
+                  dismissible
+                >
                   {error}
                 </Alert>
               )}
