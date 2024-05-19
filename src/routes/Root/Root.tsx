@@ -1,16 +1,16 @@
 import { Outlet } from "react-router-dom";
-import { Navigation } from "../components/common/Navigation";
+import Navigation from "../../components/common/Navigation";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Footer from "../components/common/Footer/Footer";
+import Footer from "../../components/common/Footer/Footer";
 
 export const Root: React.FC = () => {
   return (
     <Container fluid className="d-flex flex-column vh-100">
       <Row>
         <Col>
-          <Navigation/>
+          <Navigation />
         </Col>
       </Row>
       <Row className="flex-grow-1">
@@ -20,7 +20,7 @@ export const Root: React.FC = () => {
       </Row>
       <Row>
         <Col>
-          <Footer title="jeff"/>
+          <Footer title="jeff" />
         </Col>
       </Row>
     </Container>

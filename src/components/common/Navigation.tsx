@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { ThemeToggle } from "./ThemeToggle";
 
-export const Navigation: React.FC = () => {
+const Navigation: React.FC = () => {
   return (
     <Navbar expand="md" className="bg-body-tertiary">
       <Container>
@@ -50,3 +50,5 @@ export const Navigation: React.FC = () => {
     </Navbar>
   );
 };
+
+export default Navigation;
