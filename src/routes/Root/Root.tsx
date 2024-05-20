@@ -13,7 +13,7 @@ const Root: React.FC = () => {
           <Navigation />
         </Col>
       </Row>
-      <Row className="flex-grow-1">
+      <Row className="flex-grow-1" >
         <Col>
           <Outlet />
         </Col>
