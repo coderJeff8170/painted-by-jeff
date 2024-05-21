@@ -14,8 +14,6 @@ const Home: React.FC = () => {
   return (
     <>
     <Container className={styles.demoWrap} fluid>
-      {/* <Container fluid style={{ height: "100%", backgroundImage: "url(/FullSize/MyFaveMemoryPlaceholder.png)", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", opacity: "0.33" }}> */}
-        {/* <Image className={styles.demoBg} src="FullSize/MyFaveMemoryPlaceholder.png" /> */}
         <div className={styles.demoBg}></div>
         <div className={styles.demoContent}>
         <Row>
