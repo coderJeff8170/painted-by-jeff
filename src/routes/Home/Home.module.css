@@ -1,17 +1,22 @@
-.demo-wrap {
+.demoWrap {
     overflow: hidden;
     position: relative;
 }
 
-.demo-bg {
-    opacity: 0.6;
+.demoBg {
+    /* opacity: 0.4; */
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    height: auto;
+    height: 100vh; 
+    background-image: url('/FullSize/MyFaveMemoryPlaceholder.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
 }
 
-.demo-content {
+
+.demoContent {
     position: relative;
 }
