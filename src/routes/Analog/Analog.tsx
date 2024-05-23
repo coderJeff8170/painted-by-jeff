@@ -25,7 +25,7 @@ const Analog: React.FC = () => {
   };
 
   const renderDropdownItems = () => {
-    const artType = ["all", "painting", "drawing", "photograph"];
+    const artType = ["all", "painting", "drawing", "photograph", "mural"];
     const items = [];
     for (let i = 0; i <= artType.length; i++) {
       items.push(

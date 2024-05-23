@@ -90,6 +90,19 @@
       "thumbnail": "TMaryLondon.jpg",
       "datetime": "2024-05-15T20:44:50.780Z",
       "description": "Mary London, 8x10, Silver Gelatin Print, 1999"
+    },
+    {
+      "id": "f178",
+      "title": "Bill Vasil",
+      "medium": "acrylic on wall",
+      "type": "mural",
+      "width": 72,
+      "height": 48,
+      "year": 2006,
+      "image": "BillVasil4x6.jpg",
+      "thumbnail": "TBillVasil.jpg",
+      "datetime": "2024-05-22T22:17:43.647Z",
+      "description": "Bill Vasil, 72x48, acrylic on wall, 2006"
     }
   ]
 }
