@@ -4,14 +4,14 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { ArtCardLayout } from "../../components/common/ArtCardLayout";
 import { useContext, useState } from "react";
-import { StaticDataContext } from "../../context/StaticDataContext";
+import { AnalogDataContext } from "../../context/StaticDataContext";
 import { Dropdown, Container, DropdownButton } from "react-bootstrap";
 
 const Analog: React.FC = () => {
   //TODO: export to a custom hook...
   const [artType, setArtType] = useState("all");
-  const data = useContext(StaticDataContext);
-  const alphabetizedData = data.art.sort((a, b) =>
+  const data = useContext(AnalogDataContext);
+  const alphabetizedData = data.sort((a, b) =>
     a.title < b.title ? -1 : 1
   );
   const artwork =

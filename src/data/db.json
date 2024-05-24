@@ -1,5 +1,16 @@
 {
-  "art": [
+  "digital" : [
+    {
+      "id": "9f89",
+      "datetime": "2024-04-30T01:46:39.645Z",
+      "description": "React Drum Machine project for freeCodeCamp",
+      "thumbnail": "TDrumMachine.jpg",
+      "link": "https://codepen.io/coderJeff8170/full/xxZJWad",
+      "title": "React Drum Machine",
+      "year": 2020
+    }
+  ],
+  "analog": [
     {
       "id": "9f89",
       "datetime": "2024-04-30T01:46:39.645Z",

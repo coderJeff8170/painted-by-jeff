@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Table, Pagination } from "react-bootstrap";
-import { StaticDataContext } from "../../context/StaticDataContext";
+import { AnalogDataContext } from "../../context/StaticDataContext";
 import { Dropdown, DropdownButton, Row, Col } from "react-bootstrap";
 import { DeleteModal } from "./DeleteModal";
 import { ArtCreateUpdateModal } from "./ArtCreateUpdateModal";
@@ -11,8 +11,8 @@ interface PaginatedTableProps {
 }
 
 export const PaginatedTable = ({error, setError}: PaginatedTableProps) => {
-  const data2 = useContext(StaticDataContext);
-  const data = data2.art.sort((a, b) => (a.datetime > b.datetime ? -1 : 1));
+  const data = useContext(AnalogDataContext);
+  const sortedData = data.sort((a, b) => (a.datetime > b.datetime ? -1 : 1));
   //TODO: add sorting functionality to table headers
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,7 +20,7 @@ export const PaginatedTable = ({error, setError}: PaginatedTableProps) => {
 
   const lastIndex = currentPage * itemsPerPage;
   const firstIndex = lastIndex - itemsPerPage;
-  const currentItems = data.slice(firstIndex, lastIndex);
+  const currentItems = sortedData.slice(firstIndex, lastIndex);
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
@@ -45,7 +45,7 @@ export const PaginatedTable = ({error, setError}: PaginatedTableProps) => {
     const items = [];
     for (
       let number = 1;
-      number <= Math.ceil(data.length / itemsPerPage);
+      number <= Math.ceil(sortedData.length / itemsPerPage);
       number++
     ) {
       items.push(

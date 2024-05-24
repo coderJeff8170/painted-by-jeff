@@ -4,6 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import { DeleteIcon } from "../../assets/icons/DeleteIcon";
+import { LOCAL_PATH_TO_DB } from "../../constants";
 
 export const DeleteModal = (props: { id: string; title: string }) => {
   const [show, setShow] = useState(false);
@@ -15,7 +16,7 @@ export const DeleteModal = (props: { id: string; title: string }) => {
     event.preventDefault();
 
     axios
-      .delete(`http://localhost:3000/art/${props.id}`)
+      .delete(`${LOCAL_PATH_TO_DB}${props.id}`)
       .then((response) => {
         console.log(response);
         //TODO: snackbar notification

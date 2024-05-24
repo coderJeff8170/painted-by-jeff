@@ -1,0 +1,1 @@
+export const LOCAL_PATH_TO_DB = "/http://localhost:3000/analog/";

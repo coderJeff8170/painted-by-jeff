@@ -4,6 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import { EditIcon } from "../../assets/icons/EditIcon";
+import { LOCAL_PATH_TO_DB } from "../../constants";
 
 interface IFormData {
   title: string;
@@ -50,7 +51,7 @@ export const ArtCreateUpdateModal = ({ id, error, setError }: ArtCreateUpdateMod
     let isMounted = true;
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/art/${id}`);
+        const response = await axios.get(`${LOCAL_PATH_TO_DB}${id}`);
         if (isMounted) setFormData(response.data);
       } catch (error) {
         console.error(error);
@@ -74,8 +75,8 @@ export const ArtCreateUpdateModal = ({ id, error, setError }: ArtCreateUpdateMod
   
     try {
       const response = id
-        ? await axios.put(`http://localhost:3000/art/${id}`, updatedData)
-        : await axios.post("http://localhost:3000/art", updatedData);
+        ? await axios.put(`${LOCAL_PATH_TO_DB}${id}`, updatedData)
+        : await axios.post(LOCAL_PATH_TO_DB, updatedData);
       console.log(response);
       handleClose();
     } catch (error) {

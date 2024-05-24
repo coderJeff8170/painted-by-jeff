@@ -1,5 +1,7 @@
 import { createContext } from "react";
-import file from "../data/artwork.json";
+import file from "../data/db.json";
 
 
-export const StaticDataContext = createContext(file);
+export const AnalogDataContext = createContext(file.analog);
+
+export const DigitalDataContext = createContext(file.digital);
