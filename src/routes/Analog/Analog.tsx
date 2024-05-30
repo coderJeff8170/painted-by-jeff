@@ -58,17 +58,17 @@ const Analog: React.FC = () => {
           </Col>
         </Row>
         <CardLayout>
-        {artwork.map((card: ArtCardProps, index) => {
-          return (
-            <ArtCard
-              key={index} 
-              description={card.description}
-              title={card.title}
-              thumbnail={`${import.meta.env.VITE_THUMBNAIL_PATH}${card.thumbnail}`}
-              image={`${import.meta.env.VITE_FULL_SIZE_IMAGE_PATH}${card.image}`}
-               />
-          );
-        })}
+          {artwork.map((card: ArtCardProps, index) => {
+            return (
+              <ArtCard
+                key={index} 
+                description={card.description}
+                title={card.title}
+                thumbnail={`${import.meta.env.VITE_THUMBNAIL_PATH}${card.thumbnail}`}
+                image={`${import.meta.env.VITE_FULL_SIZE_IMAGE_PATH}${card.image}`}
+              />
+            );
+          })}
         </CardLayout>
       </Container>
     </>

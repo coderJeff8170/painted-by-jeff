@@ -1,12 +1,30 @@
 {
   "digital" : [
     {
-      "id": "9f89",
+      "id": "9fc9",
+      "datetime": "2024-04-30T01:46:39.645Z",
+      "description": "Post-It styled To Do List for keeping track of tasks",
+      "thumbnail": "TPostItWhiteboard.png",
+      "link": "https://codepen.io/coderJeff8170/full/bGppOyR",
+      "title": "Post-It Whiteboard",
+      "year": 2020
+    },
+    {
+      "id": "9fqc",
       "datetime": "2024-04-30T01:46:39.645Z",
       "description": "React Drum Machine project for freeCodeCamp",
-      "thumbnail": "TDrumMachine.jpg",
+      "thumbnail": "TDrumMachine.png",
       "link": "https://codepen.io/coderJeff8170/full/xxZJWad",
       "title": "React Drum Machine",
+      "year": 2020
+    },
+    {
+      "id": "gr87",
+      "datetime": "2024-04-30T01:46:39.645Z",
+      "description": "A technical documentation page for freeCodeCamp",
+      "thumbnail": "TCDocumentation.png",
+      "link": "https://codepen.io/coderJeff8170/full/OJyJBRR",
+      "title": "C Documentation",
       "year": 2020
     }
   ],

@@ -6,6 +6,8 @@ import MatrixSnow from "../../components/feature/MatrixSnow/MatrixSnow";
 import styles from "./Digital.module.css";
 import { useContext } from "react";
 import { DigitalDataContext } from "../../context/StaticDataContext";
+import { DigitalCard } from "../../components/common/DigitalCard";
+import { CardLayout } from "../../components/common/CardLayout";
 
 const Digital: React.FC = () => {
 
@@ -22,6 +24,19 @@ console.log(data);
             <Header title="This is the digital page!" />
           </Col>
         </Row>
+        <CardLayout>
+          {data.map((card, index) => { 
+              return (
+                <DigitalCard 
+                  key={index} 
+                  description={card.description} 
+                  link={card.link} 
+                  thumbnail={`${import.meta.env.VITE_THUMBNAIL_PATH}${card.thumbnail}`}
+                  title={card.title} 
+                />
+              )
+          })}
+        </CardLayout>
         </div>  
       </Container>
     </>
