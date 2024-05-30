@@ -6,7 +6,7 @@ import { CardLayout } from "../../components/common/CardLayout";
 import { useContext, useState } from "react";
 import { AnalogDataContext } from "../../context/StaticDataContext";
 import { Dropdown, Container, DropdownButton } from "react-bootstrap";
-import { ArtCard, ArtCardProps } from "../../components/common/ArtCard";
+import { AnalogCard, AnalogCardProps } from "../../components/common/AnalogCard";
 
 const Analog: React.FC = () => {
   //TODO: export to a custom hook...
@@ -58,9 +58,9 @@ const Analog: React.FC = () => {
           </Col>
         </Row>
         <CardLayout>
-          {artwork.map((card: ArtCardProps, index) => {
+          {artwork.map((card: AnalogCardProps, index) => {
             return (
-              <ArtCard
+              <AnalogCard
                 key={index} 
                 description={card.description}
                 title={card.title}

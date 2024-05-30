@@ -4,14 +4,14 @@ import Modal from "react-bootstrap/Modal";
 import Image from "react-bootstrap/Image";
 import { ImageMagnifier } from "./ImageMagnifier";
 
-export interface ArtCardProps {
+export interface AnalogCardProps {
   description: string;
   image: string;
   thumbnail: string;
   title: string;
 }
 
-export const ArtCard: React.FC<ArtCardProps> = (props) => {
+export const AnalogCard: React.FC<AnalogCardProps> = (props) => {
   const { description, image, thumbnail, title } = props;
   const [showFullImage, setShowFullImage] = useState(false);
   const [showMagnifier, setShowMagnifier] = useState(false);
