@@ -5,17 +5,10 @@ import Image from "react-bootstrap/Image";
 import { ImageMagnifier } from "./ImageMagnifier";
 
 export interface ArtCardProps {
-  id: string;
-  datetime: string;
   description: string;
-  height: number;
   image: string;
-  medium: string;
   thumbnail: string;
   title: string;
-  type: string;
-  width: number;
-  year: number;
 }
 
 export const ArtCard: React.FC<ArtCardProps> = (props) => {
